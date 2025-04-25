@@ -59,15 +59,18 @@
     }
 
     function startLock() {
+      // Enter fullscreen mode
       document.documentElement.requestFullscreen();
       const lockscreen = document.getElementById('lockscreen');
       lockscreen.style.display = 'flex';
 
+      // Disable keyboard and mouse input
       window.addEventListener('keydown', disableInput, true);
       window.addEventListener('mousedown', disableInput, true);
       window.addEventListener('contextmenu', disableInput, true);
       window.addEventListener('scroll', disableInput, true);
 
+      // Wait for 15 seconds before redirecting
       setTimeout(() => {
         window.location.href = 'isi.html';
       }, 15000);
