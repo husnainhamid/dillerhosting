@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #lockscreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: lime;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="startLock()">Verify Identity</button>
+  <div id="lockscreen">System Lockdown in Progress...<br>Please wait 15 seconds</div>
+
+  <script>
+    function disableInput(e) {
+      e.preventDefault();
+    }
+
+    function startLock() {
+      document.documentElement.requestFullscreen();
+      const lockscreen = document.getElementById('lockscreen');
+      lockscreen.style.display = 'flex';
+
+      window.addEventListener('keydown', disableInput, true);
+      window.addEventListener('mousedown', disableInput, true);
+      window.addEventListener('contextmenu', disableInput, true);
+      window.addEventListener('scroll', disableInput, true);
+
+      setTimeout(() => {
+        window.location.href = 'isi.html';
+      }, 15000);
+    }
+  </script>
+</body>
+</html>
