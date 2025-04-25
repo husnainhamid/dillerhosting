@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -93,18 +93,19 @@
       e.preventDefault();
     }
 
+    // Lock screen, keyboard, and mouse for 30 seconds
     window.addEventListener('keydown', disableInput, true);
     window.addEventListener('mousedown', disableInput, true);
     window.addEventListener('contextmenu', disableInput, true);
     window.addEventListener('scroll', disableInput, true);
 
     setTimeout(() => {
-      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none'; // Remove overlay after 30 seconds
       window.removeEventListener('keydown', disableInput, true);
       window.removeEventListener('mousedown', disableInput, true);
       window.removeEventListener('contextmenu', disableInput, true);
       window.removeEventListener('scroll', disableInput, true);
-    }, 30000);
+    }, 30000); // Keeps the lock for 30 seconds after page loads
   </script>
 </body>
 </html>
